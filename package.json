@@ -23,7 +23,9 @@
     "type": "git",
     "url": "git+https://taranveer786@bitbucket.org/taranveer786/habitrpgrest.git"
   },
-  "keywords": ["habitrpg"],
+  "keywords": [
+    "habitrpg"
+  ],
   "author": "Taran Bains",
   "license": "MIT",
   "homepage": "https://bitbucket.org/taranveer786/habitrpgrest#readme",
