@@ -1,0 +1,13 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/styled-components/*
+<PROJECT_ROOT>/node_modules/stylelint/*
+
+[include]
+
+[libs]
+<PROJECT_ROOT>/flow-typed/
+
+
+[lints]
+
+[options]
