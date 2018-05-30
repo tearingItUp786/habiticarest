@@ -1,7 +1,7 @@
 # habiticarest
 
 ## Site link
-Doesn't work with github pages so checkout the bitbucket link [here](https://taranveer786.bitbucket.io/login).
+Doesn't work with github pages so checkout the bitbucket link [here](https://taranveer786.bitbucket.io/).
 
 ## Sprites
 
