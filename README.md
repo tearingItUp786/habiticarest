@@ -1,4 +1,4 @@
-# habitRPGRest
+# habiticarest
 
 ## Sprites
 
