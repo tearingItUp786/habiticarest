@@ -1,7 +1,8 @@
 # habiticarest
 
 ## Site link
-Doesn't work with github pages so checkout the bitbucket link [here](https://taranveer786.bitbucket.io/).
+
+The app is up on Heroku! [here](https://habiticarest.herokuapp.com/).
 
 ## Sprites
 
