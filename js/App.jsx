@@ -13,6 +13,12 @@ import AsyncRoute from './AsyncRoute';
 // import Dashboard from './Dashboard';
 import { defaultTheme } from './styling/styled';
 
+if (typeof require.ensure !== 'function')
+  require.ensure = (d, c) => {
+    c(require);
+  };
+if (typeof require.include !== 'function') require.include = () => {};
+
 /* Router styling */
 export const StyledAnimatedSwitch = styled(AnimatedSwitch)`
   position: relative;
