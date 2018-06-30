@@ -34,6 +34,7 @@ export const Navbar = styled.nav`
         border: none;
         background: none;
         letter-spacing: 2px;
+        cursor: pointer;
 
         &:hover,
         &:active {

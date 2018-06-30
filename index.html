@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>HabitRPG Rest API</title>
+  <title>Habitica Rest API Dashboard</title>
 
   <!-- Latest compiled and minified CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/react-toastify@4.1.0/dist/ReactToastify.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link href="assets/css/sprites/spritesmith-largeSprites-0.css" rel="stylesheet">
   <link href="assets/css/sprites/spritesmith-main-0.css" rel="stylesheet">
@@ -35,7 +37,9 @@
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <%= body %>
+  </div>
   <div id="modalRoot"></div>
   <script src="./public/bundle.js"></script>
 </body>

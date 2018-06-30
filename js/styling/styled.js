@@ -147,4 +147,5 @@ export const SpinnerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: ${props => (props.initial ? '100vh' : '100%')};
 `;
