@@ -3,26 +3,49 @@ const webpack = require('webpack');
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const config = {
+function handleWebpackMode(mode = 'production') {
+  console.log(mode);
+
+  let entry = ['./js/ClientApp.jsx'];
+  let devtool = 'none';
+  let devServer = {};
+  const plugins = [
+    new BundleAnalyzerPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+  ];
+
+  if (mode !== 'production') {
+    entry = [
+      'babel-polyfill',
+      'react-hot-loader/patch',
+      'webpack-dev-server/client?http://localhost:786',
+      'webpack/hot/only-dev-server',
+      './js/ClientApp.jsx'
+    ];
+
+    devtool = 'source-map';
+    devServer = {
+      hot: true,
+      publicPath: '/public/',
+      historyApiFallback: true,
+      port: 786
+    };
+
+    plugins.unshift(new webpack.HotModuleReplacementPlugin());
+  }
+
+  return { entry, devtool, devServer, plugins };
+}
+
+module.exports = ({ mode } = { mode: 'production' }) => ({
+  mode,
+  ...handleWebpackMode(mode),
   context: __dirname,
-  entry: [
-    'babel-polyfill',
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:786',
-    'webpack/hot/only-dev-server',
-    './js/ClientApp.jsx'
-  ],
-  // devtool: 'cheap-eval-source-map',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
     publicPath: '/public/'
-  },
-  devServer: {
-    hot: true,
-    publicPath: '/public/',
-    historyApiFallback: true,
-    port: 786
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
@@ -53,11 +76,6 @@ const config = {
       }
     }
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
-  ],
   module: {
     rules: [
       {
@@ -68,21 +86,9 @@ const config = {
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.css$/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+        loader: 'babel-loader',
+        exclude: /node_modules/
       }
     ]
   }
-};
-
-console.log(process.env.NODE_ENV);
-
-if (process.env.NODE_ENV === 'production') {
-  config.entry = ['./js/ClientApp.jsx'];
-  config.plugins.push(new BundleAnalyzerPlugin());
-}
-
-module.exports = config;
+});
